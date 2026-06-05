@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBA (B&I) 312 — Banking Laws & Practice | Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=JetBrains+Mono:wght@400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0c10;
+    --bg-secondary: #0f1218;
+    --bg-card: #131720;
+    --bg-card-hover: #171d28;
+    --bg-unit: #1a2030;
+    --border: #1e2535;
+    --border-active: #2d3a52;
+    --accent-gold: #c9a84c;
+    --accent-gold-dim: #8a6b28;
+    --accent-blue: #3b82f6;
+    --accent-blue-dim: #1d4ed8;
+    --accent-teal: #2dd4bf;
+    --accent-rose: #fb7185;
+    --accent-violet: #a78bfa;
+    --text-primary: #e8eaf0;
+    --text-secondary: #9aa3b5;
+    --text-muted: #5a6478;
+    --text-heading: #f0f2f8;
+    --highlight-bg: #1c2540;
+    --highlight-border: #2a3d6b;
+    --table-header: #162032;
+    --table-row: #0f1520;
+    --table-row-alt: #131a28;
+    --tag-bg: #1a2535;
+    --important-bg: #1c1a10;
+    --important-border: #6b5014;
+    --tip-bg: #0f1c1a;
+    --tip-border: #1a4a44;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(45,212,191,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    padding: 48px 0 36px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--tag-bg);
+    border: 1px solid var(--border-active);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+
+  .header-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 900;
+    color: var(--text-heading);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  .header-title span {
+    color: var(--accent-gold);
+  }
+
+  .header-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .meta-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .meta-chip .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent-teal);
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+  }
+
+  .toc-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-teal);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 13px;
+  }
+
+  .toc-item:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    background: var(--bg-unit);
+    transform: translateX(3px);
+  }
+
+  .toc-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    min-width: 20px;
+  }
+
+  /* ── ACCORDION ── */
+  .unit-accordion {
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s ease;
+  }
+
+  .unit-accordion.active {
+    border-color: var(--border-active);
+    box-shadow: 0 0 0 1px rgba(201,168,76,0.08), 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .unit-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    cursor: pointer;
+    background: var(--bg-card);
+    transition: background 0.2s ease;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .unit-header:hover {
+    background: var(--bg-card-hover);
+  }
+
+  .unit-number-bar {
+    min-width: 72px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 12px;
+    border-right: 1px solid var(--border);
+    background: var(--bg-secondary);
+  }
+
+  .unit-roman {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .unit-word {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .unit-header-content {
+    flex: 1;
+    padding: 20px 24px;
+  }
+
+  .unit-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+
+  .unit-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-heading);
+    line-height: 1.2;
+  }
+
+  .unit-hours {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  .unit-toggle {
+    padding: 0 24px;
+    font-size: 20px;
+    color: var(--text-muted);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), color 0.2s;
+    line-height: 1;
+  }
+
+  .unit-accordion.active .unit-toggle {
+    transform: rotate(180deg);
+    color: var(--accent-gold);
+  }
+
+  /* Color accents per unit */
+  .unit-1 .unit-roman { color: #c9a84c; }
+  .unit-1 .unit-tag { color: #c9a84c; }
+  .unit-1 .unit-number-bar { border-right-color: rgba(201,168,76,0.2); }
+
+  .unit-2 .unit-roman { color: #3b82f6; }
+  .unit-2 .unit-tag { color: #3b82f6; }
+  .unit-2 .unit-number-bar { border-right-color: rgba(59,130,246,0.2); }
+
+  .unit-3 .unit-roman { color: #2dd4bf; }
+  .unit-3 .unit-tag { color: #2dd4bf; }
+  .unit-3 .unit-number-bar { border-right-color: rgba(45,212,191,0.2); }
+
+  .unit-4 .unit-roman { color: #a78bfa; }
+  .unit-4 .unit-tag { color: #a78bfa; }
+  .unit-4 .unit-number-bar { border-right-color: rgba(167,139,250,0.2); }
+
+  /* ── PANEL ── */
+  .unit-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    background: var(--bg-secondary);
+  }
+
+  .unit-panel.open {
+    max-height: 9999px;
+  }
+
+  .panel-inner {
+    padding: 32px 32px 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── TOPICS LIST ── */
+  .topics-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+
+  .topics-box-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    margin-bottom: 14px;
+  }
+
+  .topics-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 8px;
+  }
+
+  .topics-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .topics-list li::before {
+    content: '›';
+    color: var(--accent-gold);
+    font-size: 16px;
+    line-height: 1.2;
+    flex-shrink: 0;
+  }
+
+  /* ── TOPIC SECTIONS ── */
+  .topic-section {
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topic-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .topic-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+  }
+
+  .topic-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent-gold);
+    line-height: 1.3;
+  }
+
+  .unit-2 .topic-title { border-left-color: #3b82f6; }
+  .unit-3 .topic-title { border-left-color: #2dd4bf; }
+  .unit-4 .topic-title { border-left-color: #a78bfa; }
+
+  .topic-body p {
+    color: var(--text-secondary);
+    margin-bottom: 14px;
+    font-weight: 300;
+    font-size: 14.5px;
+  }
+
+  .topic-body p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* ── TABLE ── */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13.5px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .styled-table thead th {
+    background: var(--table-header);
+    color: var(--text-primary);
+    padding: 11px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-active);
+  }
+
+  .styled-table tbody tr:nth-child(odd) { background: var(--table-row); }
+  .styled-table tbody tr:nth-child(even) { background: var(--table-row-alt); }
+  .styled-table tbody tr:hover { background: var(--bg-unit); }
+
+  .styled-table td {
+    padding: 10px 16px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(30,37,53,0.5);
+    font-size: 13.5px;
+    vertical-align: top;
+  }
+
+  .styled-table td:first-child {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* ── CALLOUTS ── */
+  .exam-tip {
+    background: var(--tip-bg);
+    border: 1px solid var(--tip-border);
+    border-left: 3px solid var(--accent-teal);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 13.5px;
+    color: #7dd3cf;
+  }
+
+  .exam-tip strong {
+    color: var(--accent-teal);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .highlight-box {
+    background: var(--highlight-bg);
+    border: 1px solid var(--highlight-border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+
+  .highlight-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .highlight-box ul li {
+    color: var(--text-secondary);
+    padding: 3px 0 3px 18px;
+    position: relative;
+    font-size: 13.5px;
+  }
+
+  .highlight-box ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-size: 11px;
+    top: 5px;
+  }
+
+  .highlight-box h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-blue);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin: 30px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── EXAM POINTS ── */
+  .exam-points {
+    background: var(--important-bg);
+    border: 1px solid var(--important-border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-top: 36px;
+  }
+
+  .exam-points-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .exam-points-title::before {
+    content: '★';
+    font-size: 14px;
+  }
+
+  .exam-points ul {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+
+  .exam-points ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .exam-points ul li::before {
+    content: '◆';
+    color: var(--accent-gold);
+    font-size: 8px;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .exam-points ul li strong {
+    color: var(--text-primary);
+  }
+
+  /* ── REVISION SUMMARY ── */
+  .revision-box {
+    background: linear-gradient(135deg, rgba(45,212,191,0.05), rgba(59,130,246,0.05));
+    border: 1px solid rgba(45,212,191,0.2);
+    border-radius: 10px;
+    padding: 24px;
+    margin-top: 20px;
+  }
+
+  .revision-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-teal);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .revision-title::before {
+    content: '⟳';
+    font-size: 15px;
+  }
+
+  .revision-box p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+    font-style: italic;
+  }
+
+  /* ── PROGRESS BAR ── */
+  .progress-bar-container {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--bg-secondary);
+    z-index: 100;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal));
+    width: 0%;
+    transition: width 0.1s;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--accent-gold);
+    opacity: 0.6;
+  }
+
+  /* Code span */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg-unit);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 12px;
+    color: var(--accent-teal);
+  }
+
+  /* Sub-heading inside topic */
+  .sub-heading {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin: 18px 0 8px;
+    padding-left: 10px;
+    border-left: 2px solid var(--border-active);
+  }
+
+  /* Tag badge */
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin: 0 3px;
+  }
+
+  .badge-gold { background: rgba(201,168,76,0.12); color: var(--accent-gold); border: 1px solid rgba(201,168,76,0.3); }
+  .badge-blue { background: rgba(59,130,246,0.12); color: #93c5fd; border: 1px solid rgba(59,130,246,0.3); }
+  .badge-teal { background: rgba(45,212,191,0.12); color: var(--accent-teal); border: 1px solid rgba(45,212,191,0.3); }
+  .badge-violet { background: rgba(167,139,250,0.12); color: var(--accent-violet); border: 1px solid rgba(167,139,250,0.3); }
+
+  @media (max-width: 640px) {
+    .panel-inner { padding: 20px 18px 28px; }
+    .unit-number-bar { min-width: 54px; }
+    .unit-roman { font-size: 18px; }
+    .topics-list { grid-template-columns: 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Animate panel content */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .unit-panel.open .panel-inner {
+    animation: fadeUp 0.4s ease forwards;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar-container">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-badge">GGSIPU · BBA (B&I) · 6th Semester</div>
+    <h1 class="header-title">Banking Laws<br><span>&</span> Practice</h1>
+    <div class="header-subtitle">BBA (B&I) 312 — Complete Study Guide · All Units</div>
+    <div class="header-meta">
+      <div class="meta-chip"><span class="dot"></span> L-3 T/P-0</div>
+      <div class="meta-chip"><span class="dot" style="background:var(--accent-gold)"></span> Credits: 3</div>
+      <div class="meta-chip"><span class="dot" style="background:var(--accent-violet)"></span> 4 Units</div>
+      <div class="meta-chip"><span class="dot" style="background:var(--accent-rose)"></span> 42 Total Hours</div>
+    </div>
+  </header>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">// Table of Contents</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#" onclick="toggleUnit('unit1');return false;">
+        <span class="toc-num">01</span> Reserve Bank of India Act, 1934
+      </a>
+      <a class="toc-item" href="#" onclick="toggleUnit('unit2');return false;">
+        <span class="toc-num">02</span> Banking Regulation Act, 1949
+      </a>
+      <a class="toc-item" href="#" onclick="toggleUnit('unit3');return false;">
+        <span class="toc-num">03</span> Cyber Laws relating to Banking
+      </a>
+      <a class="toc-item" href="#" onclick="toggleUnit('unit4');return false;">
+        <span class="toc-num">04</span> SARFAESI Act, 2002
+      </a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════ UNIT I ══════════════════════════ -->
+  <div class="unit-accordion unit-1" id="unit1">
+    <div class="unit-header" onclick="toggleUnit('unit1')">
+      <div class="unit-number-bar">
+        <div class="unit-roman">I</div>
+        <div class="unit-word">UNIT</div>
+      </div>
+      <div class="unit-header-content">
+        <div class="unit-tag">RBI Act, 1934</div>
+        <div class="unit-name">Reserve Bank of India Act, 1934</div>
+        <div class="unit-hours">⏱ 12 Hours</div>
+      </div>
+      <div class="unit-toggle">▾</div>
+    </div>
+
+    <div class="unit-panel" id="unit1-panel">
+      <div class="panel-inner">
+
+        <!-- Topics -->
+        <div class="topics-box">
+          <div class="topics-box-title">// Topics Covered</div>
+          <ul class="topics-list">
+            <li>Overview of RBI Act, 1934</li>
+            <li>Banking Management</li>
+            <li>Composition of the Central Board & Term of Office</li>
+            <li>Local Boards</li>
+            <li>Meetings of the Central Board</li>
+            <li>Business Bank May & May Not Transact</li>
+            <li>Right & Issue Base Notes</li>
+            <li>Issue Department — Denominations & Forms</li>
+            <li>Legal Tender Character of Notes</li>
+            <li>Cease, Reissue, Recovery — Stolen & Mutilated Notes</li>
+            <li>Provision for Special Bank Notes</li>
+            <li>Powers of Central Govt. to Supersede Central Board</li>
+            <li>Issue Department — Assets & Liabilities</li>
+            <li>Provisions Related to Cash Reserves (CRR)</li>
+            <li>Collection & Furnishing of Credit Information</li>
+            <li>Powers to Collect Info from Non-Banking Institutions</li>
+            <li>Power of Bank to File Winding Up Petition</li>
+          </ul>
+        </div>
+
+        <div class="section-label">Topic-wise Explanation</div>
+
+        <!-- Topic 1 -->
+        <div class="topic-section">
+          <div class="topic-num">01</div>
+          <div class="topic-title">Overview of the Reserve Bank of India Act, 1934</div>
+          <div class="topic-body">
+            <p>The <strong>Reserve Bank of India Act, 1934</strong> is the founding legislation that established the RBI on <strong>1st April 1935</strong>. Before RBI's formation, the Imperial Bank of India performed partial central banking functions. The <strong>Hilton Young Commission (1926)</strong> recommended a dedicated central bank, leading to the enactment of this law.</p>
+            <p>The primary objectives of RBI are: to regulate the issue of banknotes, to maintain monetary stability in India, to operate the currency and credit system in the country's advantage, and to develop a modern monetary policy framework.</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>RBI established: 1 April 1935 | Nationalized: 1 January 1949 | Headquarters: Mumbai</div>
+          </div>
+        </div>
+
+        <!-- Topic 2 -->
+        <div class="topic-section">
+          <div class="topic-num">02</div>
+          <div class="topic-title">Composition of the Central Board & Term of Office</div>
+          <div class="topic-body">
+            <p>The <strong>Central Board of Directors</strong> is the apex governing body of the RBI. It comprises:</p>
+            <table class="styled-table">
+              <thead><tr><th>Position</th><th>Number</th><th>Appointed By</th><th>Term</th></tr></thead>
+              <tbody>
+                <tr><td>Governor</td><td>1</td><td>Central Govt.</td><td>As specified (usually 3 yrs)</td></tr>
+                <tr><td>Deputy Governors</td><td>Up to 4</td><td>Central Govt.</td><td>As specified</td></tr>
+                <tr><td>Nominated Directors</td><td>10</td><td>Central Govt.</td><td>4 years</td></tr>
+                <tr><td>Government Officials</td><td>2</td><td>Central Govt.</td><td>During pleasure</td></tr>
+              </tbody>
+            </table>
+            <p>Directors hold office for <strong>4 years</strong> and are eligible for re-appointment. The Central Government can remove any Director before their term under specific circumstances. The Board meets <strong>at least 6 times a year</strong>, once each quarter.</p>
+          </div>
+        </div>
+
+        <!-- Topic 3 -->
+        <div class="topic-section">
+          <div class="topic-num">03</div>
+          <div class="topic-title">Local Boards</div>
+          <div class="topic-body">
+            <p>Under the RBI Act, <strong>4 Local Boards</strong> are established in different regions of India to represent regional banking interests:</p>
+            <table class="styled-table">
+              <thead><tr><th>Region</th><th>Location</th></tr></thead>
+              <tbody>
+                <tr><td>Western Area</td><td>Mumbai</td></tr>
+                <tr><td>Eastern Area</td><td>Kolkata</td></tr>
+                <tr><td>Southern Area</td><td>Chennai</td></tr>
+                <tr><td>Northern Area</td><td>New Delhi</td></tr>
+              </tbody>
+            </table>
+            <p>Each Local Board consists of <strong>5 members</strong>, appointed by the Central Government for <strong>4 years</strong>. Functions include advising the Central Board on regional matters, performing delegated duties, and acting as liaison for local banking needs.</p>
+          </div>
+        </div>
+
+        <!-- Topic 4 -->
+        <div class="topic-section">
+          <div class="topic-num">04</div>
+          <div class="topic-title">Business Bank May & May Not Transact</div>
+          <div class="topic-body">
+            <div class="sub-heading">Permitted Business — Section 17</div>
+            <div class="highlight-box">
+              <h4>RBI CAN transact</h4>
+              <ul>
+                <li>Accept deposits from Central/State Governments, banks, financial institutions</li>
+                <li>Purchase, sell, and discount bills of exchange</li>
+                <li>Purchase and sell gold/silver coins and bullion</li>
+                <li>Grant loans and advances to scheduled banks and State Governments</li>
+                <li>Act as banker and agent to the Central Government</li>
+                <li>Issue and manage government securities</li>
+                <li>Open accounts in foreign banks and central banks abroad</li>
+              </ul>
+            </div>
+            <div class="sub-heading">Prohibited Business — Section 19</div>
+            <div class="highlight-box">
+              <h4>RBI CANNOT transact</h4>
+              <ul>
+                <li>Engage in trade or have direct interest in any trading/commercial business</li>
+                <li>Purchase shares of any company</li>
+                <li>Advance money on security of immovable property or personal security</li>
+                <li>Grant unsecured loans</li>
+                <li>Provide financial assistance for speculative purposes</li>
+              </ul>
+            </div>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>Section 17 = Permitted | Section 19 = Prohibited. Frequently asked in MCQs.</div>
+          </div>
+        </div>
+
+        <!-- Topic 5 -->
+        <div class="topic-section">
+          <div class="topic-num">05</div>
+          <div class="topic-title">Right to Issue Notes, Denominations & Legal Tender</div>
+          <div class="topic-body">
+            <p><strong>Section 22</strong> grants RBI the <strong>sole right to issue banknotes</strong> in India. The only exception is the <strong>Re. 1 note</strong>, which is issued by the Ministry of Finance, Government of India.</p>
+            <p>RBI may issue notes in denominations of ₹2, ₹5, ₹10, ₹20, ₹50, ₹100, ₹200, ₹500, ₹2000. The maximum denomination permissible under the law is <strong>₹10,000</strong>.</p>
+            <p><strong>Section 26</strong> gives banknotes the character of <strong>legal tender</strong>. This means every person is legally bound to accept RBI notes for settling debts at face value. When the government demonetizes currency (as in November 2016 for ₹500/₹1000), the legal tender status of those notes is withdrawn.</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>Section 22 = Right to Issue Notes | Section 26 = Legal Tender. Both are high-priority exam topics.</div>
+          </div>
+        </div>
+
+        <!-- Topic 6 -->
+        <div class="topic-section">
+          <div class="topic-num">06</div>
+          <div class="topic-title">Cease, Reissue, Stolen & Mutilated Notes</div>
+          <div class="topic-body">
+            <p><strong>Cease to be Legal Tender:</strong> The Central Government, on RBI's recommendation, can declare certain notes as no longer legal tender. This is effectively demonetization.</p>
+            <p><strong>Reissue of Notes:</strong> RBI has discretion to reissue returned notes provided they are in acceptable condition. Notes in poor condition are destroyed.</p>
+            <p><strong>Mutilated Notes:</strong> RBI has a <strong>Note Refund Policy</strong>. Mutilated/soiled notes can be exchanged at RBI offices or designated bank branches. Full or partial value is given depending on the usable portion of the note.</p>
+            <p><strong>Stolen Notes:</strong> RBI is <strong>not liable</strong> to pay the value of stolen notes. Recovery of printing cost for stolen notes is not entertained either.</p>
+          </div>
+        </div>
+
+        <!-- Topic 7 -->
+        <div class="topic-section">
+          <div class="topic-num">07</div>
+          <div class="topic-title">Powers of Central Govt. to Supersede Central Board</div>
+          <div class="topic-body">
+            <p><strong>Section 30</strong> empowers the Central Government to supersede the Central Board under exceptional circumstances such as: persistent default in complying with the Act, circumstances where it is in public interest, or cases of financial mismanagement.</p>
+            <table class="styled-table">
+              <thead><tr><th>Aspect</th><th>Detail</th></tr></thead>
+              <tbody>
+                <tr><td>Effect of Supersession</td><td>All Directors vacate office</td></tr>
+                <tr><td>Who manages RBI</td><td>Administrator appointed by Central Govt.</td></tr>
+                <tr><td>Maximum Period</td><td>6 months at one time (extendable to 12 months total)</td></tr>
+                <tr><td>After Period Ends</td><td>New Board is reconstituted</td></tr>
+              </tbody>
+            </table>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>This provision has NEVER been invoked to date — but is theoretically important in exams.</div>
+          </div>
+        </div>
+
+        <!-- Topic 8 -->
+        <div class="topic-section">
+          <div class="topic-num">08</div>
+          <div class="topic-title">Issue Department — Assets & Liabilities</div>
+          <div class="topic-body">
+            <p>The Issue Department maintains a <strong>separate balance sheet</strong> from the Banking Department. All notes issued form its liabilities, backed by the following assets:</p>
+            <table class="styled-table">
+              <thead><tr><th>Asset Type</th><th>Details</th></tr></thead>
+              <tbody>
+                <tr><td>Gold Coin & Bullion</td><td>Held domestically or abroad</td></tr>
+                <tr><td>Foreign Securities</td><td>Government-approved foreign securities</td></tr>
+                <tr><td>Rupee Coins</td><td>Held in vaults</td></tr>
+                <tr><td>Government of India Securities</td><td>Domestic G-Secs</td></tr>
+                <tr><td>Bills of Exchange</td><td>Short-term commercial papers</td></tr>
+              </tbody>
+            </table>
+            <p>The <strong>Minimum Reserve System (MRS)</strong> has been followed since 1957: Minimum gold/foreign exchange reserve = ₹200 crore (gold ≥ ₹115 crore). The rest can be backed by government securities.</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>MRS replaced the Proportional Reserve System in 1957. Minimum reserve = ₹200 crore. Gold portion ≥ ₹115 crore.</div>
+          </div>
+        </div>
+
+        <!-- Topic 9 -->
+        <div class="topic-section">
+          <div class="topic-num">09</div>
+          <div class="topic-title">Cash Reserves (CRR), Credit Information & Winding Up</div>
+          <div class="topic-body">
+            <div class="sub-heading">Cash Reserve Ratio (CRR)</div>
+            <p>RBI mandates every Scheduled Commercial Bank to maintain a certain percentage of their <strong>Net Demand and Time Liabilities (NDTL)</strong> as cash reserves with RBI. Key points: maintained on a daily average basis; banks earn <strong>no interest</strong> on CRR; penalty for non-maintenance is <strong>3% above Bank Rate p.a.</strong> on shortfall; CRR is used as a monetary policy tool.</p>
+
+            <div class="sub-heading">Collection & Furnishing of Credit Information — Chapter IIIA</div>
+            <p>RBI can collect credit information from banks about their borrowers and furnish this (in consolidated form) to banks on request. Banks are obligated to provide this information. This laid the groundwork for modern Credit Information Companies like <strong>CIBIL, Equifax, CRIF Highmark, and Experian</strong>.</p>
+
+            <div class="sub-heading">Power to Collect Info from Non-Banking Institutions</div>
+            <p>RBI can direct <strong>NBFCs and financial intermediaries</strong> to submit periodic returns, statements, and reports. Failure to comply attracts penalties. This is crucial for macro-prudential regulation of the shadow banking sector.</p>
+
+            <div class="sub-heading">Power to File Winding Up Petition</div>
+            <p>RBI can apply to the <strong>High Court</strong> for winding up a banking company if it is insolvent, has ceased banking business, is acting detrimentally to depositors, or fails to maintain required reserves. This protects depositors and system stability.</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>RBI used similar powers during the PMC Bank crisis (2019) — a good practical example to quote in exams.</div>
+          </div>
+        </div>
+
+        <!-- Exam Points -->
+        <div class="exam-points">
+          <div class="exam-points-title">Important Exam Points — Unit I</div>
+          <ul>
+            <li>RBI established <strong>1 April 1935</strong> under RBI Act, 1934; nationalized <strong>1 January 1949</strong></li>
+            <li>Sole right to issue banknotes: <strong>Section 22</strong>; Re. 1 note issued by Ministry of Finance</li>
+            <li>Legal tender character: <strong>Section 26</strong></li>
+            <li>Permitted business: <strong>Section 17</strong> | Prohibited business: <strong>Section 19</strong></li>
+            <li>Minimum Reserve System (1957): Min. ₹200 cr total; Gold ≥ ₹115 cr</li>
+            <li>Central Board = 1 Governor + up to 4 DGs + 10 Directors + 2 Govt. Officials</li>
+            <li>4 Local Boards — Mumbai, Kolkata, Chennai, Delhi — each with <strong>5 members for 4 years</strong></li>
+            <li>CRR: % of NDTL kept with RBI; <strong>banks earn no interest</strong> on it</li>
+            <li>Supersession of Central Board: max <strong>6 months</strong>, extendable to 12 months</li>
+            <li>Chapter IIIA = Credit Information powers; predecessor to CIBIL framework</li>
+          </ul>
+        </div>
+
+        <!-- Revision Summary -->
+        <div class="revision-box">
+          <div class="revision-title">Quick Revision Summary</div>
+          <p>The RBI Act, 1934 established India's central bank on 1 April 1935, nationalized in 1949, to regulate currency, manage credit, and act as banker to the government. Its Central Board (Governor + 4 DGs + 10 Directors + 2 officials) is supported by 4 regional Local Boards. RBI holds the exclusive right to issue banknotes (Section 22), except Re.1 (Ministry of Finance), backed by assets under the Minimum Reserve System (₹200 crore minimum since 1957). All notes are legal tender under Section 26; demonetization withdraws this status. Permitted business (Sec 17) includes lending and G-sec management; Section 19 prohibits trade and speculative activity. CRR is RBI's key monetary tool — banks hold a % of NDTL with RBI, earning no interest. RBI also collects credit data (Chapter IIIA), regulates NBFCs, and can apply to courts to wind up insolvent banks for depositor protection.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════ UNIT II ══════════════════════════ -->
+  <div class="unit-accordion unit-2" id="unit2">
+    <div class="unit-header" onclick="toggleUnit('unit2')">
+      <div class="unit-number-bar">
+        <div class="unit-roman">II</div>
+        <div class="unit-word">UNIT</div>
+      </div>
+      <div class="unit-header-content">
+        <div class="unit-tag">Banking Regulation Act, 1949</div>
+        <div class="unit-name">Banking Regulation Act, 1949</div>
+        <div class="unit-hours">⏱ 12 Hours</div>
+      </div>
+      <div class="unit-toggle">▾</div>
+    </div>
+
+    <div class="unit-panel" id="unit2-panel">
+      <div class="panel-inner">
+
+        <div class="topics-box">
+          <div class="topics-box-title">// Topics Covered</div>
+          <ul class="topics-list">
+            <li>Overview of Banking Regulation Act, 1949</li>
+            <li>Business of Banking Companies</li>
+            <li>Disposal of Non-Banking Assets</li>
+            <li>Prohibition of Trading</li>
+            <li>Employment of Managing Agents</li>
+            <li>Provisions related to Board of Directors</li>
+            <li>Powers of RBI to appoint Chairman of Banking Companies</li>
+            <li>Minimum Paid-up Capital & Reserves</li>
+            <li>Voting Rights of Share Holders</li>
+            <li>Restrictions on Commission, Brokerage, Discount on Shares</li>
+            <li>Restriction as to Payment of Dividends</li>
+            <li>Reserve Fund, Cash Reserve</li>
+            <li>Restriction on Nature of Subsidiary Companies</li>
+            <li>RBI Powers to Control Advances by Banking Companies</li>
+            <li>Licensing of Banking Companies</li>
+            <li>Restrictions on Opening & Transfer of Places of Business</li>
+            <li>Insolvency and Bankruptcy Code, 2016 — Overview</li>
+          </ul>
+        </div>
+
+        <div class="section-label">Topic-wise Explanation</div>
+
+        <!-- Topic 1 -->
+        <div class="topic-section">
+          <div class="topic-num">01</div>
+          <div class="topic-title">Overview of the Banking Regulation Act, 1949</div>
+          <div class="topic-body">
+            <p>The <strong>Banking Regulation Act, 1949 (BR Act)</strong> is the principal legislation that governs the regulation and supervision of banking companies in India. It came into force on <strong>16 March 1949</strong>. Before this Act, banks operated under the Companies Act, which was insufficient for banking-specific regulation.</p>
+            <p>The Act empowers <strong>RBI</strong> to regulate, supervise, and control banking companies. It covers everything from licensing, capital requirements, management, deposits, advances, and auditing. It applies to all banking companies in India, including co-operative banks (after 2020 amendment) and foreign banks operating in India.</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>The BR Act was passed in 1949, the same year RBI was nationalized. The 2020 amendment brought cooperative banks under RBI supervision — a recent and important development.</div>
+          </div>
+        </div>
+
+        <!-- Topic 2 -->
+        <div class="topic-section">
+          <div class="topic-num">02</div>
+          <div class="topic-title">Business of Banking Companies</div>
+          <div class="topic-body">
+            <p>Under <strong>Section 6</strong> of the BR Act, a banking company can conduct the following forms of business:</p>
+            <div class="highlight-box">
+              <h4>Permissible Business Activities</h4>
+              <ul>
+                <li>Accepting deposits repayable on demand or otherwise (core banking)</li>
+                <li>Borrowing money and purchasing/selling securities on behalf of customers</li>
+                <li>Buying and selling of foreign exchange</li>
+                <li>Issuing letters of credit, travellers' cheques, circular notes</li>
+                <li>Safe custody of valuables (locker facility)</li>
+                <li>Collecting and transmitting money</li>
+                <li>Underwriting and dealing in shares, debentures, bonds</li>
+                <li>Providing housing finance, hire purchase, etc. (via subsidiaries)</li>
+              </ul>
+            </div>
+            <p><strong>Section 8</strong> prohibits banks from directly or indirectly engaging in trade (buying/selling of goods). A bank can hold goods as security for a loan but cannot trade in them beyond a period of time specified in the Act.</p>
+          </div>
+        </div>
+
+        <!-- Topic 3 -->
+        <div class="topic-section">
+          <div class="topic-num">03</div>
+          <div class="topic-title">Disposal of Non-Banking Assets & Prohibition of Trading</div>
+          <div class="topic-body">
+            <p><strong>Non-Banking Assets (Section 9):</strong> A banking company cannot hold any immovable property (land, buildings) except for its own use for a period exceeding <strong>7 years</strong> from the date of acquisition. Such assets acquired as security for debt must be disposed of within 7 years. RBI can extend this period.</p>
+            <p><strong>Prohibition of Trading (Section 8):</strong> Banks are prohibited from directly or indirectly engaging in trading activity — buying or selling of goods. The rationale is that banking is a public trust, and trading introduces commercial risk that could endanger depositor funds. A bank may hold goods as collateral but must dispose of them within a specified time.</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>Section 8 = Prohibition of trading | Section 9 = Non-banking assets must be disposed within 7 years. These section numbers are frequently asked.</div>
+          </div>
+        </div>
+
+        <!-- Topic 4 -->
+        <div class="topic-section">
+          <div class="topic-num">04</div>
+          <div class="topic-title">Employment of Managing Agents & Provisions Related to Directors</div>
+          <div class="topic-body">
+            <p><strong>Managing Agents (Section 10):</strong> Banking companies are <strong>prohibited from employing managing agents</strong>. This was a major reform as many pre-1949 banks were run by managing agency houses that extracted profits at the expense of depositors.</p>
+            <div class="sub-heading">Board of Directors — Restrictions</div>
+            <p>The BR Act imposes significant restrictions on bank boards to ensure professional management:</p>
+            <ul style="list-style:none; padding:0; margin:0 0 12px 0;">
+              <li style="padding:4px 0 4px 16px; position:relative; color:var(--text-secondary); font-size:13.5px; border-left:2px solid var(--border-active); margin-bottom:6px; padding-left:14px;">At least <strong>51%</strong> of directors must have special knowledge or practical experience in relevant fields (accountancy, banking, agriculture, small industry, etc.) — Section 10A</li>
+              <li style="padding:4px 0 4px 16px; position:relative; color:var(--text-secondary); font-size:13.5px; border-left:2px solid var(--border-active); margin-bottom:6px; padding-left:14px;">A director cannot hold office in <strong>more than one bank</strong> at a time</li>
+              <li style="padding:4px 0 4px 16px; position:relative; color:var(--text-secondary); font-size:13.5px; border-left:2px solid var(--border-active); margin-bottom:6px; padding-left:14px;">Directors holding significant voting rights in a borrower company must disclose this</li>
+              <li style="padding:4px 0 4px 16px; position:relative; color:var(--text-secondary); font-size:13.5px; border-left:2px solid var(--border-active); margin-bottom:6px; padding-left:14px;">RBI can remove the Chairman/CEO or any director if found unfit — Section 36AA</li>
+            </ul>
+            <p><strong>Powers of RBI to Appoint Chairman:</strong> Under Section 36AB, RBI can appoint additional directors on the board of a banking company when it considers it necessary in the public interest or in the interest of depositors.</p>
+          </div>
+        </div>
+
+        <!-- Topic 5 -->
+        <div class="topic-section">
+          <div class="topic-num">05</div>
+          <div class="topic-title">Minimum Paid-up Capital & Reserves</div>
+          <div class="topic-body">
+            <p>Every banking company must maintain a minimum level of paid-up capital and reserves to protect depositors. These requirements differ based on whether the bank operates in one State or multiple States and whether it is domestic or foreign.</p>
+            <table class="styled-table">
+              <thead><tr><th>Type of Bank</th><th>Min. Paid-up Capital</th></tr></thead>
+              <tbody>
+                <tr><td>Banking company with business in more than one state</td><td>₹5 Lakh</td></tr>
+                <tr><td>Banking company in one state only (no operations in Mumbai/Kolkata)</td><td>₹1 Lakh</td></tr>
+                <tr><td>Foreign bank (incorporated outside India)</td><td>₹15 Lakh</td></tr>
+              </tbody>
+            </table>
+            <p>Note: These are <strong>minimum statutory limits under the Act</strong>. RBI's current licensing guidelines require significantly higher capital (e.g., ₹500 crore for a new universal bank). The Act's minimum serves as a floor.</p>
+          </div>
+        </div>
+
+        <!-- Topic 6 -->
+        <div class="topic-section">
+          <div class="topic-num">06</div>
+          <div class="topic-title">Voting Rights, Dividends, Commissions & Reserve Fund</div>
+          <div class="topic-body">
+            <div class="sub-heading">Voting Rights of Shareholders — Section 12A</div>
+            <p>Unlike other companies, in a banking company, no shareholder can exercise voting rights exceeding <strong>10% of total voting rights</strong> regardless of the number of shares held. This prevents any single individual or group from dominating a bank. The limit was later relaxed to <strong>26%</strong> for promoters by amendment.</p>
+
+            <div class="sub-heading">Restrictions on Dividends — Section 15</div>
+            <p>A banking company <strong>cannot declare dividends</strong> until all capitalized expenses (like preliminary expenses, commission on shares) have been fully written off. This ensures banks don't distribute profits while carrying fictitious assets on their balance sheet.</p>
+
+            <div class="sub-heading">Restrictions on Commission & Brokerage — Section 13</div>
+            <p>A banking company cannot pay commission, brokerage, discount, or remuneration on the issue of its shares at a rate exceeding <strong>2.5%</strong> of paid-up value. This prevents excessive financial drain on the bank during share issuance.</p>
+
+            <div class="sub-heading">Reserve Fund — Section 17</div>
+            <p>Every banking company must transfer a minimum of <strong>20% of its net profit</strong> each year to a Reserve Fund (Statutory Reserve) before declaring any dividend. This builds a buffer against future losses. Once this reserve equals the paid-up capital, RBI can exempt the bank from further transfer with prior approval.</p>
+          </div>
+        </div>
+
+        <!-- Topic 7 -->
+        <div class="topic-section">
+          <div class="topic-num">07</div>
+          <div class="topic-title">Cash Reserve & RBI Powers to Control Advances</div>
+          <div class="topic-body">
+            <div class="sub-heading">Cash Reserve — Section 18</div>
+            <p>Every non-scheduled bank must maintain a <strong>cash reserve</strong> equal to at least <strong>3% of its demand and time liabilities</strong> with itself. Scheduled banks maintain CRR as directed by RBI under the RBI Act. The Section 18 reserve is specifically for non-scheduled banks and must be maintained with RBI or SBI.</p>
+
+            <div class="sub-heading">RBI Powers to Control Advances — Section 21 & 35A</div>
+            <p>RBI has extensive powers to issue directions to banks regarding advances:</p>
+            <div class="highlight-box">
+              <h4>RBI can direct banks on:</h4>
+              <ul>
+                <li>Purpose for which advances may or may not be made</li>
+                <li>Margins to be maintained for secured advances</li>
+                <li>Maximum amount of advances to any single borrower</li>
+                <li>Rate of interest and terms of advances</li>
+                <li>Priority sector lending requirements (agriculture, MSME, housing)</li>
+              </ul>
+            </div>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>Section 21 = Directions on advances | Section 35A = RBI's omnibus power to issue directions in public interest. Section 17 = 20% transfer to Reserve Fund.</div>
+          </div>
+        </div>
+
+        <!-- Topic 8 -->
+        <div class="topic-section">
+          <div class="topic-num">08</div>
+          <div class="topic-title">Licensing of Banking Companies</div>
+          <div class="topic-body">
+            <p>Under <strong>Section 22</strong>, no company can carry on banking business in India without a <strong>licence from RBI</strong>. Applications must be made to RBI, and RBI can grant or refuse a licence.</p>
+            <p><strong>Conditions for granting a licence:</strong></p>
+            <ul style="margin:10px 0; padding-left:20px; color:var(--text-secondary); font-size:13.5px; line-height:2;">
+              <li>The company must be in a position to pay its current or future depositors in full as their claims accrue</li>
+              <li>Its affairs are not being or are not likely to be conducted in a manner detrimental to the interests of its present or future depositors</li>
+              <li>Adequate capital structure and earning prospects</li>
+              <li>Public interest will be served by granting the licence</li>
+            </ul>
+            <p>RBI can <strong>cancel a licence</strong> if the bank ceases to carry on banking business, fails to comply with conditions, or its financial position deteriorates beyond recovery.</p>
+          </div>
+        </div>
+
+        <!-- Topic 9 -->
+        <div class="topic-section">
+          <div class="topic-num">09</div>
+          <div class="topic-title">Restrictions on Opening & Transfer of Business Places</div>
+          <div class="topic-body">
+            <p>Under <strong>Section 23</strong>, banking companies cannot open a new place of business, or change the location of any existing place of business, without prior <strong>permission from RBI</strong>. This gives RBI control over bank expansion to ensure orderly banking development and avoid over-concentration in urban areas.</p>
+            <p>RBI has used this provision to implement the <strong>Financial Inclusion</strong> agenda — directing banks to open branches in unbanked rural centres before opening additional urban branches. The concept of <strong>Branch Authorisation Policy</strong> flows from this section.</p>
+          </div>
+        </div>
+
+        <!-- Topic 10 -->
+        <div class="topic-section">
+          <div class="topic-num">10</div>
+          <div class="topic-title">Insolvency and Bankruptcy Code, 2016 — Overview</div>
+          <div class="topic-body">
+            <p>The <strong>Insolvency and Bankruptcy Code, 2016 (IBC)</strong> is a landmark legislation that consolidated all existing insolvency laws in India into a single comprehensive framework. Before IBC, insolvency resolution was handled under multiple overlapping laws (SICA, Companies Act, SARFAESI, etc.) which caused delays and low recovery rates.</p>
+            <table class="styled-table">
+              <thead><tr><th>Feature</th><th>Details</th></tr></thead>
+              <tbody>
+                <tr><td>Primary Regulator</td><td>Insolvency and Bankruptcy Board of India (IBBI)</td></tr>
+                <tr><td>Resolution Authority</td><td>National Company Law Tribunal (NCLT)</td></tr>
+                <tr><td>Appellate Authority</td><td>National Company Law Appellate Tribunal (NCLAT)</td></tr>
+                <tr><td>Time Limit</td><td>180 days + 90 days extension = max 270 days</td></tr>
+                <tr><td>Minimum Default Amount</td><td>₹1 crore (raised from ₹1 lakh)</td></tr>
+                <tr><td>Key Feature</td><td>Creditor-in-control model (Financial Creditors run CoC)</td></tr>
+              </tbody>
+            </table>
+            <p>For banking companies, IBC is critical because banks are the primary <strong>financial creditors</strong>. The IBC process for corporate insolvency: default → admission of application → appointment of Insolvency Professional → formation of <strong>Committee of Creditors (CoC)</strong> → resolution plan → NCLT approval.</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>IBC 2016 revolutionized NPA resolution in India. Key terms: CIRP (Corporate Insolvency Resolution Process), CoC (Committee of Creditors), IP (Insolvency Professional), IBBI, NCLT. These appear frequently in exams.</div>
+          </div>
+        </div>
+
+        <!-- Exam Points -->
+        <div class="exam-points">
+          <div class="exam-points-title">Important Exam Points — Unit II</div>
+          <ul>
+            <li>BR Act enacted <strong>16 March 1949</strong>; applies to all banking companies in India</li>
+            <li>Section 6 = Permitted business | Section 8 = Prohibition of trading | Section 9 = Non-banking assets — 7-year disposal rule</li>
+            <li>Managing agents: <strong>PROHIBITED</strong> under Section 10</li>
+            <li>Voting rights cap: no shareholder can vote more than <strong>10% of total votes</strong> (Section 12A)</li>
+            <li>Dividend restriction: all capitalized expenses must be written off first (Section 15)</li>
+            <li>Reserve Fund: minimum <strong>20% of net profit</strong> annually (Section 17)</li>
+            <li>Licensing under <strong>Section 22</strong>; Branch opening under <strong>Section 23</strong></li>
+            <li>Cash reserve for non-scheduled banks: <strong>3% of DTL</strong> (Section 18)</li>
+            <li>IBC 2016: CIRP timeline = 180 + 90 = <strong>270 days max</strong></li>
+            <li>Commission on share issue capped at <strong>2.5%</strong> of paid-up value (Section 13)</li>
+          </ul>
+        </div>
+
+        <!-- Revision Summary -->
+        <div class="revision-box">
+          <div class="revision-title">Quick Revision Summary</div>
+          <p>The Banking Regulation Act, 1949 is the cornerstone of banking supervision in India, empowering RBI to regulate all banking companies. It defines what banks can do (Section 6), prohibits trading (Section 8), mandates disposal of non-banking assets within 7 years (Section 9), and bans managing agents (Section 10). RBI can appoint directors, remove management, and issue directions on advances (Section 21, 35A). Banks must maintain a statutory reserve of 20% of net profits (Section 17) and need RBI's licence (Section 22) and permission to open branches (Section 23). Shareholder voting rights are capped at 10% to prevent dominance. The IBC 2016 complements this by providing a time-bound insolvency resolution mechanism (max 270 days) through NCLT and Committee of Creditors — transforming India's NPA recovery landscape.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════ UNIT III ══════════════════════════ -->
+  <div class="unit-accordion unit-3" id="unit3">
+    <div class="unit-header" onclick="toggleUnit('unit3')">
+      <div class="unit-number-bar">
+        <div class="unit-roman">III</div>
+        <div class="unit-word">UNIT</div>
+      </div>
+      <div class="unit-header-content">
+        <div class="unit-tag">IT Act 2000 · Cyber Laws</div>
+        <div class="unit-name">Cyber Laws relating to Banking</div>
+        <div class="unit-hours">⏱ 10 Hours</div>
+      </div>
+      <div class="unit-toggle">▾</div>
+    </div>
+
+    <div class="unit-panel" id="unit3-panel">
+      <div class="panel-inner">
+
+        <div class="topics-box">
+          <div class="topics-box-title">// Topics Covered</div>
+          <ul class="topics-list">
+            <li>Introduction to IT Act, 2000</li>
+            <li>Various terms related to communications networks in banking</li>
+            <li>Electronic Fund Management</li>
+            <li>Electronic Commerce & Communication Networks for Banks</li>
+            <li>International Payment Systems</li>
+            <li>Role of Central Banks in Payment Mechanism</li>
+            <li>Integrated Certifying Authorities</li>
+            <li>Security Control System</li>
+            <li>Electric Governance</li>
+            <li>Digital Signature Certificates</li>
+            <li>Duties of Subscribers</li>
+            <li>Penalties & Adjudication</li>
+            <li>Cyber Regulations Appellate Tribunal</li>
+          </ul>
+        </div>
+
+        <div class="section-label">Topic-wise Explanation</div>
+
+        <!-- Topic 1 -->
+        <div class="topic-section">
+          <div class="topic-num">01</div>
+          <div class="topic-title">Introduction to IT Act, 2000 & Key Terms in Banking</div>
+          <div class="topic-body">
+            <p>The <strong>Information Technology Act, 2000 (IT Act)</strong> is India's primary legislation governing electronic commerce, digital communications, and cyber offences. It was enacted on <strong>9 June 2000</strong> and significantly amended in <strong>2008</strong> to include provisions on cyber crimes and data privacy.</p>
+            <p>For banking, the IT Act provides the <strong>legal framework for all digital transactions, internet banking, mobile banking, and electronic record-keeping</strong>. It gives electronic records and digital signatures the same legal validity as physical documents.</p>
+            <div class="sub-heading">Key Banking-related Terms under IT Act</div>
+            <table class="styled-table">
+              <thead><tr><th>Term</th><th>Meaning in Banking Context</th></tr></thead>
+              <tbody>
+                <tr><td>Electronic Record</td><td>Data generated/stored/transmitted electronically (e-statements, e-receipts)</td></tr>
+                <tr><td>Digital Signature</td><td>Authentication of electronic records using asymmetric cryptography</td></tr>
+                <tr><td>Asymmetric Crypto System</td><td>Key pair (public + private) used for encrypting and decrypting data</td></tr>
+                <tr><td>Certifying Authority (CA)</td><td>Entity licensed to issue digital signature certificates</td></tr>
+                <tr><td>Subscriber</td><td>Person to whom a digital signature certificate is issued</td></tr>
+                <tr><td>Electronic Funds Transfer</td><td>Cashless transfer of funds via electronic channels (NEFT, RTGS, IMPS)</td></tr>
+                <tr><td>Secure Electronic Record</td><td>Record with a secure digital signature applied</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Topic 2 -->
+        <div class="topic-section">
+          <div class="topic-num">02</div>
+          <div class="topic-title">Electronic Fund Management & Payment Systems</div>
+          <div class="topic-body">
+            <p><strong>Electronic Fund Management</strong> refers to the management of financial transactions and records using electronic means instead of physical cash or paper. India's key electronic payment systems include:</p>
+            <table class="styled-table">
+              <thead><tr><th>System</th><th>Full Form</th><th>Key Feature</th></tr></thead>
+              <tbody>
+                <tr><td>NEFT</td><td>National Electronic Funds Transfer</td><td>Deferred settlement in batches; available 24×7</td></tr>
+                <tr><td>RTGS</td><td>Real Time Gross Settlement</td><td>Real-time, for high-value (≥₹2 lakh); 24×7</td></tr>
+                <tr><td>IMPS</td><td>Immediate Payment Service</td><td>Instant, 24×7, mobile-enabled</td></tr>
+                <tr><td>UPI</td><td>Unified Payments Interface</td><td>Instant interbank transfers via VPA; NPCI-managed</td></tr>
+                <tr><td>NACH</td><td>National Automated Clearing House</td><td>Bulk/recurring payments (salaries, EMIs)</td></tr>
+              </tbody>
+            </table>
+            <p>All these systems are operated under the <strong>Payment and Settlement Systems Act, 2007</strong> and overseen by RBI. The <strong>National Payments Corporation of India (NPCI)</strong> manages retail payment systems like UPI, IMPS, and NACH.</p>
+          </div>
+        </div>
+
+        <!-- Topic 3 -->
+        <div class="topic-section">
+          <div class="topic-num">03</div>
+          <div class="topic-title">Role of Central Banks in Payment Mechanism</div>
+          <div class="topic-body">
+            <p>RBI plays a <strong>pivotal role</strong> in India's payment mechanism as both regulator and operator:</p>
+            <div class="highlight-box">
+              <h4>RBI's Role in Payments</h4>
+              <ul>
+                <li><strong>Operator:</strong> Runs RTGS and maintains the core banking settlement infrastructure</li>
+                <li><strong>Regulator:</strong> Issues guidelines, approves payment system operators, and sets security standards</li>
+                <li><strong>Catalyst:</strong> Promotes innovation (sandbox framework), financial inclusion (Jan Dhan), and digital payments</li>
+                <li><strong>Settlement Agent:</strong> All interbank settlements happen through banks' current accounts with RBI</li>
+                <li><strong>Oversight:</strong> Monitors systemically important payment systems (SIPS) for risk management</li>
+              </ul>
+            </div>
+            <p><strong>International Payment Systems:</strong> Cross-border payments involve the <strong>SWIFT network</strong> (Society for Worldwide Interbank Financial Telecommunication), correspondent banking, and international card networks (Visa, Mastercard). RBI regulates cross-border transactions through FEMA 1999.</p>
+          </div>
+        </div>
+
+        <!-- Topic 4 -->
+        <div class="topic-section">
+          <div class="topic-num">04</div>
+          <div class="topic-title">Certifying Authorities, Digital Signatures & Security</div>
+          <div class="topic-body">
+            <div class="sub-heading">Certifying Authorities (CAs)</div>
+            <p>Under IT Act Section 24, the <strong>Controller of Certifying Authorities (CCA)</strong> is appointed by the Central Government to oversee Certifying Authorities. CAs are licensed entities that issue <strong>Digital Signature Certificates (DSCs)</strong>. Major CAs in India include NIC, eMudhra, NSDL, and Capricorn.</p>
+
+            <div class="sub-heading">Digital Signature Certificates (DSCs)</div>
+            <p>A DSC is an <strong>electronic credential</strong> that verifies the identity of the sender and ensures the integrity of the message. It is based on <strong>Public Key Infrastructure (PKI)</strong>:</p>
+            <ul style="margin:10px 0; padding-left:20px; color:var(--text-secondary); font-size:13.5px; line-height:2;">
+              <li><strong>Private Key:</strong> Known only to the sender; used to sign the document</li>
+              <li><strong>Public Key:</strong> Available publicly; used by recipient to verify the signature</li>
+            </ul>
+            <p>In banking, DSCs are used for: securing internet banking transactions, filing tax returns, corporate loan documents, e-tendering, and government e-procurement.</p>
+
+            <div class="sub-heading">Security Control System</div>
+            <p>Banks are required to implement robust information security systems. Key measures include: <strong>Firewalls, SSL/TLS encryption, Two-Factor Authentication (2FA), OTP-based verification, Anti-virus & Anti-phishing systems, Data Encryption Standards (DES, AES), Regular security audits</strong> as per RBI's IT Framework for Banks (based on Gopalakrishna Committee recommendations).</p>
+          </div>
+        </div>
+
+        <!-- Topic 5 -->
+        <div class="topic-section">
+          <div class="topic-num">05</div>
+          <div class="topic-title">E-Governance, Duties of Subscribers & Penalties</div>
+          <div class="topic-body">
+            <div class="sub-heading">Electronic Governance (e-Governance)</div>
+            <p>The IT Act Sections 4–10 provide the framework for <strong>e-Governance</strong> — the use of digital means for government and legal functions. Key provisions: electronic records have the same legal validity as physical records; electronic contracts are legally binding; digital signatures replace hand-written signatures for legal purposes in banking and commercial transactions.</p>
+
+            <div class="sub-heading">Duties of Subscribers — Section 40–42</div>
+            <p>A subscriber (person holding a DSC) has the following duties:</p>
+            <ul style="margin:8px 0; padding-left:20px; color:var(--text-secondary); font-size:13.5px; line-height:2;">
+              <li>Generate the key pair using the algorithm specified by the CA</li>
+              <li>Keep the <strong>private key secure</strong> and not disclose it to anyone</li>
+              <li>Accept the DSC only after verifying the accuracy of the information</li>
+              <li>Immediately notify the CA if the private key is compromised</li>
+              <li>Request revocation of the DSC if it becomes invalid</li>
+            </ul>
+
+            <div class="sub-heading">Penalties & Adjudication — Sections 43–47</div>
+            <table class="styled-table">
+              <thead><tr><th>Offence</th><th>Penalty</th></tr></thead>
+              <tbody>
+                <tr><td>Unauthorized access/damage to computer systems (Sec 43)</td><td>Compensation up to ₹5 crore</td></tr>
+                <tr><td>Hacking (Sec 66)</td><td>Up to 3 years imprisonment and/or ₹5 lakh fine</td></tr>
+                <tr><td>Identity theft (Sec 66C)</td><td>Up to 3 years imprisonment and ₹1 lakh fine</td></tr>
+                <tr><td>Phishing/cheating using computer (Sec 66D)</td><td>Up to 3 years imprisonment and ₹1 lakh fine</td></tr>
+                <tr><td>Breach of confidentiality (Sec 72)</td><td>Up to 2 years imprisonment and/or ₹1 lakh fine</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Adjudication</strong> is done by an <strong>Adjudicating Officer</strong> (IT Secretary rank or above) appointed by the Central Government. Complaints are heard and compensation awarded up to ₹5 crore limit.</p>
+          </div>
+        </div>
+
+        <!-- Topic 6 -->
+        <div class="topic-section">
+          <div class="topic-num">06</div>
+          <div class="topic-title">Cyber Regulations Appellate Tribunal (CRAT)</div>
+          <div class="topic-body">
+            <p>Under <strong>Section 48</strong> of the IT Act, the Central Government established the <strong>Cyber Regulations Appellate Tribunal (CRAT)</strong> to hear appeals against orders of the Adjudicating Officer.</p>
+            <table class="styled-table">
+              <thead><tr><th>Feature</th><th>Detail</th></tr></thead>
+              <tbody>
+                <tr><td>Presided by</td><td>Chairperson + Members appointed by Central Govt.</td></tr>
+                <tr><td>Appeal against</td><td>Orders of Adjudicating Officers</td></tr>
+                <tr><td>Time limit to file appeal</td><td>45 days from date of order (extendable)</td></tr>
+                <tr><td>Further appeal</td><td>To the High Court</td></tr>
+                <tr><td>Powers</td><td>Civil court powers for receiving evidence, examining witnesses</td></tr>
+              </tbody>
+            </table>
+            <p>The CRAT is significant for the banking sector because it provides a specialized quasi-judicial forum for resolving cyber-related disputes involving banks and financial institutions.</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>CRAT was renamed to Telecom Disputes Settlement & Appellate Tribunal (TDSAT) for IT matters after an amendment. However, for exam purposes, CRAT under IT Act 2000 remains the standard answer.</div>
+          </div>
+        </div>
+
+        <!-- Exam Points -->
+        <div class="exam-points">
+          <div class="exam-points-title">Important Exam Points — Unit III</div>
+          <ul>
+            <li>IT Act enacted on <strong>9 June 2000</strong>; major amendment in <strong>2008</strong></li>
+            <li>CCA = Controller of Certifying Authorities; governs all CAs in India</li>
+            <li>Digital Signature uses <strong>asymmetric cryptography</strong> — public/private key pair (PKI)</li>
+            <li>NEFT = batch settlement | RTGS = real-time high value ≥₹2L | IMPS = instant 24×7 | UPI = VPA-based</li>
+            <li>RBI runs RTGS; NPCI runs UPI, IMPS, NACH</li>
+            <li>Section 43 = unauthorized access | Section 66 = hacking | Section 66C = identity theft</li>
+            <li>Adjudicating Officer handles claims up to <strong>₹5 crore</strong></li>
+            <li>CRAT hears appeals against Adjudicating Officer; further appeal to <strong>High Court</strong></li>
+            <li>Subscribers must protect their <strong>private key</strong> and notify CA if compromised</li>
+            <li>International payments use <strong>SWIFT</strong> network; regulated under <strong>FEMA 1999</strong></li>
+          </ul>
+        </div>
+
+        <!-- Revision Summary -->
+        <div class="revision-box">
+          <div class="revision-title">Quick Revision Summary</div>
+          <p>The IT Act, 2000 provides the legal backbone for India's digital banking ecosystem. It validates electronic records and contracts, enabling internet banking, mobile payments, and e-governance. Key systems — NEFT, RTGS, IMPS, UPI — are regulated by RBI and operated by RBI/NPCI. Digital Signature Certificates (DSCs) issued by CAs under the Controller of Certifying Authorities ensure authentication and integrity of electronic transactions using PKI (public-private key infrastructure). Subscribers must safeguard private keys and report compromise immediately. The Act imposes penalties for hacking (Sec 66), identity theft (Sec 66C), and unauthorized access (Sec 43), adjudicated by Adjudicating Officers for claims up to ₹5 crore. Appeals go to the Cyber Regulations Appellate Tribunal (CRAT) and then to the High Court. RBI plays a central role in regulating payment systems, ensuring security, and promoting financial inclusion through digital channels.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════ UNIT IV ══════════════════════════ -->
+  <div class="unit-accordion unit-4" id="unit4">
+    <div class="unit-header" onclick="toggleUnit('unit4')">
+      <div class="unit-number-bar">
+        <div class="unit-roman">IV</div>
+        <div class="unit-word">UNIT</div>
+      </div>
+      <div class="unit-header-content">
+        <div class="unit-tag">SARFAESI Act, 2002</div>
+        <div class="unit-name">SARFAESI Act, 2002</div>
+        <div class="unit-hours">⏱ 8 Hours</div>
+      </div>
+      <div class="unit-toggle">▾</div>
+    </div>
+
+    <div class="unit-panel" id="unit4-panel">
+      <div class="panel-inner">
+
+        <div class="topics-box">
+          <div class="topics-box-title">// Topics Covered</div>
+          <ul class="topics-list">
+            <li>Important Aspects & Salient Features of SARFAESI</li>
+            <li>Applicable & Non-Applicable Provisions</li>
+            <li>Incorporation & Registration of Special Purpose Vehicles</li>
+            <li>Securitization of Financial Assets</li>
+            <li>Funding of Securitization</li>
+            <li>Enforcing Security Interest</li>
+            <li>Assets Reconstruction Establishments of Central Registry</li>
+            <li>Offences & Penalties</li>
+            <li>Boiler Plate Provisions</li>
+            <li>Exempted Translations</li>
+            <li>Legal Remedies & Borrower / Banks / FIs</li>
+          </ul>
+        </div>
+
+        <div class="section-label">Topic-wise Explanation</div>
+
+        <!-- Topic 1 -->
+        <div class="topic-section">
+          <div class="topic-num">01</div>
+          <div class="topic-title">Important Aspects & Salient Features of SARFAESI Act, 2002</div>
+          <div class="topic-body">
+            <p>The <strong>Securitisation and Reconstruction of Financial Assets and Enforcement of Security Interest Act, 2002</strong> — commonly known as <strong>SARFAESI Act</strong> — is a landmark legislation that empowers banks and financial institutions to recover Non-Performing Assets (NPAs) without court intervention.</p>
+            <p>Before SARFAESI, loan recovery required lengthy and expensive court proceedings that could take decades. SARFAESI dramatically changed this by allowing banks to directly enforce security (collateral) against defaulters.</p>
+            <div class="sub-heading">Salient Features</div>
+            <div class="highlight-box">
+              <h4>Key Features of SARFAESI</h4>
+              <ul>
+                <li>Enables banks to take possession of secured assets WITHOUT court order (after 60-day notice)</li>
+                <li>Allows securitization of financial assets to raise funds</li>
+                <li>Enables setting up of <strong>Asset Reconstruction Companies (ARCs)</strong></li>
+                <li>Creates a <strong>Central Registry</strong> for security interests</li>
+                <li>Provides a faster alternative to civil court and DRT for NPA recovery</li>
+                <li>Applicable to NPAs of ₹1 lakh or more (currently ₹1 lakh threshold; practically RBI guideline sets higher)</li>
+              </ul>
+            </div>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>Full form: Securitisation and Reconstruction of Financial Assets and Enforcement of Security Interest Act, 2002. This full form is commonly asked in 1-mark questions.</div>
+          </div>
+        </div>
+
+        <!-- Topic 2 -->
+        <div class="topic-section">
+          <div class="topic-num">02</div>
+          <div class="topic-title">Applicable & Non-Applicable Provisions</div>
+          <div class="topic-body">
+            <p>SARFAESI applies to secured creditors — mainly banks and financial institutions. Understanding what it covers (and doesn't) is critical.</p>
+            <table class="styled-table">
+              <thead><tr><th>SARFAESI Applicable To</th><th>SARFAESI NOT Applicable To</th></tr></thead>
+              <tbody>
+                <tr><td>Scheduled Commercial Banks</td><td>Loans below ₹1 lakh</td></tr>
+                <tr><td>Financial Institutions (NABARD, NHB, SIDBI)</td><td>Agricultural land (major protection for farmers)</td></tr>
+                <tr><td>ARCs (Asset Reconstruction Companies)</td><td>Security interest created in pledge</td></tr>
+                <tr><td>Housing Finance Companies (notified)</td><td>NPA where less than 20% of loan is outstanding</td></tr>
+                <tr><td>NBFCs (notified by Central Govt.)</td><td>Cases already before courts</td></tr>
+              </tbody>
+            </table>
+            <p>The exclusion of <strong>agricultural land</strong> is a major policy decision. This prevents mass dispossession of farmers, who form the backbone of India's economy. For banks, this means agricultural loans need to be recovered through the court system even under SARFAESI framework.</p>
+          </div>
+        </div>
+
+        <!-- Topic 3 -->
+        <div class="topic-section">
+          <div class="topic-num">03</div>
+          <div class="topic-title">Securitization of Financial Assets & Special Purpose Vehicles</div>
+          <div class="topic-body">
+            <p><strong>Securitization</strong> is the process of converting illiquid financial assets (like loans) into liquid tradable securities. This allows banks to remove NPAs from their balance sheet and recover funds.</p>
+            <div class="sub-heading">Process of Securitization</div>
+            <p>Step 1: Bank (Originator) pools together a set of loans (mortgage loans, auto loans, personal loans). Step 2: These loans are sold/assigned to a <strong>Special Purpose Vehicle (SPV)</strong>. Step 3: The SPV issues <strong>Security Receipts (SRs)</strong> to qualified institutional buyers. Step 4: Cash flows from loan repayments are passed through the SPV to SR holders.</p>
+            <table class="styled-table">
+              <thead><tr><th>Term</th><th>Role</th></tr></thead>
+              <tbody>
+                <tr><td>Originator</td><td>Bank/FI that created the original loans</td></tr>
+                <tr><td>Special Purpose Vehicle (SPV)</td><td>An ARC or trust that holds the financial assets</td></tr>
+                <tr><td>Security Receipts (SRs)</td><td>Instruments issued by SPV to investors</td></tr>
+                <tr><td>Qualified Institutional Buyers (QIBs)</td><td>Investors who can purchase SRs (banks, insurance cos., mutual funds)</td></tr>
+              </tbody>
+            </table>
+
+            <div class="sub-heading">Incorporation & Registration of SPVs</div>
+            <p>SPVs under SARFAESI are incorporated as <strong>trusts or companies</strong>. They must be registered with RBI if they are conducting asset reconstruction business. Only RBI-registered entities can set up SPVs for this purpose. Each SPV must maintain separate accounts for each securitization transaction.</p>
+          </div>
+        </div>
+
+        <!-- Topic 4 -->
+        <div class="topic-section">
+          <div class="topic-num">04</div>
+          <div class="topic-title">Asset Reconstruction Companies (ARCs)</div>
+          <div class="topic-body">
+            <p><strong>Asset Reconstruction Companies (ARCs)</strong> are specialized financial institutions that purchase NPAs from banks and then work to recover the money from defaulters. They are registered with and regulated by <strong>RBI</strong>.</p>
+            <div class="highlight-box">
+              <h4>Functions of ARCs</h4>
+              <ul>
+                <li>Purchase NPAs from banks at a discounted price</li>
+                <li>Raise funds by issuing Security Receipts to Qualified Institutional Buyers</li>
+                <li>Restructure the debt of the borrower</li>
+                <li>Enforce security interest and recover dues</li>
+                <li>Take over management of the defaulting company</li>
+                <li>Convert debt into equity (debt-to-equity swap)</li>
+              </ul>
+            </div>
+            <p>Major ARCs in India include <strong>ARCIL (Asset Reconstruction Company India Ltd.)</strong>, JM Financial ARC, Edelweiss ARC, and Phoenix ARC. ARCs must maintain a minimum <strong>Net Owned Fund of ₹100 crore</strong> (as per RBI guidelines).</p>
+            <div class="sub-heading">Central Registry (CERSAI)</div>
+            <p>The <strong>Central Registry of Securitisation Asset Reconstruction and Security Interest of India (CERSAI)</strong> was established under SARFAESI to maintain a central registry of all security interests created on properties. This prevents fraudulent multiple mortgages on the same property. Any bank can check CERSAI before granting a mortgage-backed loan.</p>
+          </div>
+        </div>
+
+        <!-- Topic 5 -->
+        <div class="topic-section">
+          <div class="topic-num">05</div>
+          <div class="topic-title">Enforcing Security Interest — The Core Mechanism</div>
+          <div class="topic-body">
+            <p>This is the most practically important section of SARFAESI. Under <strong>Section 13</strong>, a bank can enforce its security interest without court intervention when a borrower defaults. The process is:</p>
+            <table class="styled-table">
+              <thead><tr><th>Step</th><th>Action</th><th>Timeline</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Account classified as NPA</td><td>Day 0</td></tr>
+                <tr><td>2</td><td>Bank issues <strong>Demand Notice (Section 13(2))</strong> to borrower + guarantor</td><td>Day 1</td></tr>
+                <tr><td>3</td><td>Borrower may submit objections/representations</td><td>Within 60 days</td></tr>
+                <tr><td>4</td><td>If not repaid, bank may take possession/management of secured assets</td><td>After 60 days</td></tr>
+                <tr><td>5</td><td>Borrower can appeal to <strong>DRT</strong> (Debt Recovery Tribunal)</td><td>Within 45 days of possession</td></tr>
+                <tr><td>6</td><td>Bank sells the secured asset through auction</td><td>After DRT challenge period</td></tr>
+              </tbody>
+            </table>
+            <p><strong>Methods of Enforcement:</strong> Take possession of secured assets; take over management of the business; appoint any person to manage the secured assets; require any person who has acquired the secured assets to pay the secured creditor.</p>
+          </div>
+        </div>
+
+        <!-- Topic 6 -->
+        <div class="topic-section">
+          <div class="topic-num">06</div>
+          <div class="topic-title">Offences, Penalties & Legal Remedies</div>
+          <div class="topic-body">
+            <div class="sub-heading">Offences & Penalties</div>
+            <table class="styled-table">
+              <thead><tr><th>Offence</th><th>Penalty</th></tr></thead>
+              <tbody>
+                <tr><td>Wrongful possession of secured assets</td><td>Imprisonment up to 1 year + fine</td></tr>
+                <tr><td>Breach of conditions of management</td><td>Fine up to ₹5,000 per day</td></tr>
+                <tr><td>Non-furnishing of information required by ARC</td><td>Fine up to ₹25,000 per day</td></tr>
+                <tr><td>Falsification of accounts or records</td><td>Imprisonment up to 5 years + fine</td></tr>
+              </tbody>
+            </table>
+
+            <div class="sub-heading">Legal Remedies for Borrowers</div>
+            <p><strong>Borrowers</strong> are not left without recourse. Their remedies include:</p>
+            <ul style="margin:8px 0; padding-left:20px; color:var(--text-secondary); font-size:13.5px; line-height:2;">
+              <li>Raise objections within <strong>60 days</strong> of Demand Notice (Section 13(3A))</li>
+              <li>Appeal to <strong>Debt Recovery Tribunal (DRT)</strong> within 45 days of possession</li>
+              <li>Further appeal to <strong>Debt Recovery Appellate Tribunal (DRAT)</strong></li>
+              <li>File a writ petition in the High Court for procedural violations</li>
+            </ul>
+
+            <div class="sub-heading">Legal Remedies for Banks/FIs</div>
+            <ul style="margin:8px 0; padding-left:20px; color:var(--text-secondary); font-size:13.5px; line-height:2;">
+              <li>Enforce security under Section 13 (without court)</li>
+              <li>File suit in DRT for recovery of the remaining loan amount after asset sale</li>
+              <li>Use IBC 2016 for corporate defaulters through NCLT (CIRP)</li>
+              <li>Approach courts for personal guarantors separately</li>
+            </ul>
+
+            <div class="sub-heading">Boiler Plate Provisions & Exemptions</div>
+            <p><strong>Boiler Plate Provisions</strong> are standard legal clauses included in every SARFAESI transaction — such as governing law, dispute resolution, jurisdiction, severability, and force majeure. These protect the interests of all parties in the securitization transaction.</p>
+            <p><strong>Exempted Translations</strong> refer to categories of transactions/assets excluded from SARFAESI's purview (agricultural land, properties under lien, loans below ₹1 lakh, pledge of movables, etc.).</p>
+            <div class="exam-tip"><strong>📌 Exam Tip</strong>Section 13 = Core enforcement provision. Demand Notice → 60 days → Possession → 45 days → DRT appeal. This sequence is extremely frequently tested.</div>
+          </div>
+        </div>
+
+        <!-- Exam Points -->
+        <div class="exam-points">
+          <div class="exam-points-title">Important Exam Points — Unit IV</div>
+          <ul>
+            <li>Full form: <strong>Securitisation and Reconstruction of Financial Assets and Enforcement of Security Interest Act, 2002</strong></li>
+            <li>Key feature: Banks can take possession WITHOUT court order (Section 13)</li>
+            <li>Demand Notice period: <strong>60 days</strong> to repay before possession</li>
+            <li>Borrower can appeal to <strong>DRT within 45 days</strong> of possession; further to DRAT</li>
+            <li>NOT applicable to: <strong>agricultural land</strong>, loans below ₹1 lakh, pledge of movables</li>
+            <li>ARCs must maintain minimum <strong>Net Owned Fund of ₹100 crore</strong> (RBI guideline)</li>
+            <li>CERSAI = Central Registry to prevent multiple mortgages on same property</li>
+            <li>Security Receipts (SRs) issued by SPV/ARC to Qualified Institutional Buyers (QIBs)</li>
+            <li>Securitization: Originator → SPV → SRs → QIBs (loan pooling → tradable securities)</li>
+            <li>Falsification of accounts: imprisonment up to <strong>5 years</strong></li>
+          </ul>
+        </div>
+
+        <!-- Revision Summary -->
+        <div class="revision-box">
+          <div class="revision-title">Quick Revision Summary</div>
+          <p>SARFAESI Act, 2002 is the most powerful NPA recovery tool available to Indian banks. It allows secured creditors to take possession of and sell mortgaged assets without going to court, after issuing a 60-day demand notice under Section 13. Borrowers can contest through DRT (within 45 days) and DRAT. The Act enables securitization — converting loan pools into tradable Security Receipts via SPVs — and creation of Asset Reconstruction Companies (ARCs) that purchase NPAs from banks at discounted prices. CERSAI (Central Registry) prevents fraudulent multiple-mortgages. The Act does not apply to agricultural land (protecting farmers), loans below ₹1 lakh, or pledged movables. Together with IBC 2016 and DRT proceedings, SARFAESI forms India's three-pronged framework for banking sector NPA resolution — making it one of the most exam-critical topics in banking law.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-text">BBA (B&I) 312 · Banking Laws & Practice · GGSIPU</div>
+    <div class="footer-logo">Study Guide</div>
+  </footer>
+
+</div>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', function() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('progressBar').style.width = progress + '%';
+  });
+
+  // Accordion toggle
+  function toggleUnit(id) {
+    const accordion = document.getElementById(id);
+    const panel = document.getElementById(id + '-panel');
+    const isActive = accordion.classList.contains('active');
+
+    // Close all
+    document.querySelectorAll('.unit-accordion').forEach(a => a.classList.remove('active'));
+    document.querySelectorAll('.unit-panel').forEach(p => p.classList.remove('open'));
+
+    // Open selected (if it wasn't already open)
+    if (!isActive) {
+      accordion.classList.add('active');
+      panel.classList.add('open');
+      // Smooth scroll
+      setTimeout(() => {
+        accordion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+
+  // Keyboard accessibility
+  document.querySelectorAll('.unit-header').forEach(header => {
+    header.setAttribute('tabindex', '0');
+    header.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+
+  // Open first unit by default
+  window.addEventListener('load', function() {
+    setTimeout(() => toggleUnit('unit1'), 300);
+  });
+</script>
+
+</body>
+</html>
